@@ -181,7 +181,7 @@
   
   .btn--plain {
     text-transform: initial;
-    background-color: var(--clr-bg-alt);
+    background-color: var(--clr-primary);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     border: 0;
   }
@@ -293,6 +293,7 @@
   .project {
     padding: 2em;
     margin: 0 auto;
+    outline: thick double #0e3376;
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.2s linear;
