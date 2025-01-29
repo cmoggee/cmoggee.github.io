@@ -27,7 +27,6 @@
   }
   
   .light {
-    /*--clr-bg: #fcfcfc;*/
     --clr-bg: #A7C7E7;
     --clr-bg-alt: #fff;
     --clr-fg: #fcfcfc;
@@ -37,13 +36,12 @@
   }
   
   .dark {
-    --clr-bg: #23283e;
-    --clr-bg-alt: #2a2f4c;
-    --clr-fg: #bdbddd;
-    --clr-fg-alt: #cdcdff;
-    --clr-primary: #6495ED;
-    --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    --clr-bg: #A7C7E7;
+    --clr-bg-alt: #fff;
+    --clr-fg: #fcfcfc;
+    --clr-fg-alt: #fcfcfc;
+    --clr-primary: #0e3376;
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   
   ::-moz-selection {
@@ -181,7 +179,7 @@
   
   .btn--plain {
     text-transform: initial;
-    background-color: var(--clr-bg-alt);
+    background-color: var(--clr-primary);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     border: 0;
   }
