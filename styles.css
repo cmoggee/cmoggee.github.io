@@ -286,14 +286,14 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 /* Track that holds all album covers */
 .carousel__track {
     display: flex;
     gap: 10px;
-    animation: scroll 15s linear infinite; /* This controls the movement */
+    animation: scroll 10s linear infinite; /* This controls the movement */
     width: max-content; /* Prevents shrinking */
 }
 
