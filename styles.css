@@ -7,7 +7,6 @@
     margin: 0;
     border: 0;
     outline: 0;
-    background-color: inherit;
     color: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -33,6 +32,8 @@
     --clr-fg: #fcfcfc;
     --clr-fg-alt: #fcfcfc;
     --clr-primary: #0e3376;
+    --clr-sun: #FFDB58;
+    --clr-cloud:#ECEFF1; 
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   
@@ -203,6 +204,105 @@
   .btn--icon:active {
     transform: translateY(-5px);
   }
+
+  /*===========
+    animation
+  ===========*/
+  .animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;  /* Ensures it stays behind content */
+    overflow: hidden;
+  }
+  
+  .cloud {
+    position: absolute;
+    width:350px;
+    height:120px;
+    background: var(--clr-cloud);
+    border-radius: 100px;
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+  }
+  
+  /* Create a more realistic cloud shape */
+  .cloud::before,
+  .cloud::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background: var(--clr-cloud);
+    border-radius: 100px;
+  }
+  
+  /* Right Fluffy Part */
+  .cloud::before {
+    width:180px;
+    height:180px;
+    top: -70px;
+    left:130px;
+  }
+  
+  /* Left Fluffy Part */
+  .cloud::after {
+    width:100px;
+    height:100px;
+    top:-40px;
+    left:50px;
+  }
+  
+  
+  .sun {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--clr-sun);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    animation: sunAppear 2s ease-out 1.5s forwards;
+  }
+  
+  /* Cloud Animations */
+  @keyframes cloudLeftMove {
+    0% { left: 50%; opacity: 1; }
+    100% { left: -20%; opacity: 0; }
+  }
+  
+  @keyframes cloudRightMove {
+    0% { left: 50%; opacity: 1; }
+    100% { left: 120%; opacity: 0; }
+  }
+  
+  /* Slower animations (change from 2s to 4s) */
+  .cloud-left {
+    position: absolute;
+    top: 50%;  /* Moves cloud lower on the screen */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: cloudLeftMove 5s ease-out forwards;
+  }
+  
+  .cloud-right {
+    position: absolute;
+    top: 50%;  /* Moves cloud lower on the screen */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: cloudRightMove 5s ease-out forwards;
+  }
+  
+  
+  /* Sun Animation */
+  @keyframes sunAppear {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 1; transform: translate(-200%, -200%) scale(1); }
+  }
+  
   
   /*========
     layout
@@ -254,6 +354,9 @@
   .about {
     flex-direction: column;
     margin-top: 3em;
+    opacity: 0; /* Hide it initially */
+    transform: translateY(20px); /* Move it slightly down */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
   }
   
   .about__name {
@@ -282,26 +385,24 @@
     margin-right: 1em;
   }
 
-  /* Container for Albums */
+  /* Currently Listening to */
 .album-container {
   display: flex;
-  gap: 25px; /* Space between albums */
+  gap: 25px;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
 }
 
-/* Individual Album */
 .album {
   position: relative;
-  width: 150px;  /* Adjust size */
+  width: 150px;
   height: 150px;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
 }
 
-/* Album Image */
 .album img {
   width: 100%;
   height: 100%;
@@ -310,12 +411,10 @@
   transition: transform 0.3s ease;
 }
 
-/* Hover Effect: Slight Scale */
 .album:hover img {
   transform: scale(1.1);
 }
 
-/* Overlay (Hidden by Default) */
 .album .overlay {
   position: absolute;
   bottom: 0;
@@ -334,12 +433,11 @@
   padding: 10px;
 }
 
-/* Show Overlay on Hover */
 .album:hover .overlay {
   opacity: .8;
 }
 
-  
+/* Projects */ 
   .projects__grid {
     max-width: 1100px;
     margin: 0 auto;
