@@ -290,9 +290,16 @@
 
 .carousel__track {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     white-space: nowrap;
     transition: transform 0.1s linear;
+}
+
+.carousel__track img {
+    width: 150px; /* Adjust as needed */
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .song {
