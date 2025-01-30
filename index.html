@@ -84,38 +84,65 @@
         </div>
       </div>
 
-    <section id="songs" class="section songs">
+    <section id="songs" class="carousel">
       <h2 class="section_title">Currently Listening To</h2>
 
-      <section class="song">
-        <div class="song__grid">
-            <div class="song__image">
-                <img src="album1.jpg" alt="Song Cover">
-            </div>
-            <div class="song__details">
-                <span class="song__title">Song Title 1</span>
+        <div class="carousel__track">
+            <div class="song">
+                <img src="images/album1.jpeg" alt="Album 1">
+                <span class="song__title">The Night We Met</span>
                 <span class="song__artist">Lord Huron</span>
             </div>
-            <div class="song__actions">
-                <button>Play</button>
+            <div class="song">
+                <img src="images/album2.jpeg" alt="Album 2">
+                <span class="song__title">Saturn</span>
+                <span class="song__artist">Sleeping at Last</span>
+            </div>
+            <div class="song">
+                <img src="images/album3.jpeg" alt="Album 3">
+                <span class="song__title">Heat Waves</span>
+                <span class="song__artist">Glass Animals</span>
+            </div>
+            <!-- Duplicate the albums for seamless looping -->
+            <div class="song">
+                <img src="images/album1.jpeg" alt="Album 1">
+                <span class="song__title">Album Title 1</span>
+                <span class="song__artist">Artist Name 1</span>
+            </div>
+            <div class="song">
+                <img src="images/album2.jpeg" alt="Album 2">
+                <span class="song__title">Album Title 2</span>
+                <span class="song__artist">Artist Name 2</span>
+            </div>
+            <div class="song">
+                <img src="images/album3.jpeg" alt="Album 3">
+                <span class="song__title">Album Title 3</span>
+                <span class="song__artist">Artist Name 3</span>
             </div>
         </div>
-     </section>
-
-     <section class="song">
-      <div class="song__grid">
-          <div class="song__image">
-              <img src="another-song-cover.jpg" alt="Song Cover">
-          </div>
-          <div class="song__details">
-              <span class="song__title">Another Song 2</span>
-              <span class="song__artist">Another Artist</span>
-          </div>
-          <div class="song__actions">
-              <button>Play</button>
-          </div>
-      </div>
     </section>
+
+<script>
+    // JavaScript for infinite scrolling effect
+    document.addEventListener("DOMContentLoaded", function () {
+        const track = document.querySelector(".carousel__track");
+        let scrollAmount = 0;
+
+        function scrollAlbums() {
+            scrollAmount += 1;
+            track.style.transform = `translateX(-${scrollAmount}px)`;
+
+            // Reset scroll when reaching the duplicate set
+            if (scrollAmount >= track.scrollWidth / 2) {
+                scrollAmount = 0;
+            }
+
+            requestAnimationFrame(scrollAlbums);
+        }
+
+        scrollAlbums();
+    });
+</script>
 
     </section>
     
