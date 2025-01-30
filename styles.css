@@ -293,14 +293,14 @@
 .carousel__track {
     display: flex;
     gap: 10px;
-    animation: scroll 10s linear infinite; /* This controls the movement */
+    animation: scroll 100s linear infinite; /* This controls the movement */
     width: max-content; /* Prevents shrinking */
 }
 
 /* Album Images */
 .carousel__track img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     object-fit: cover;
 }
