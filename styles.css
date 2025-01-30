@@ -286,7 +286,7 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    background: black; /* Adjust as needed */
+    background: var(--clr-bg); /* Adjust as needed */
     padding: 10px 0;
 }
 
