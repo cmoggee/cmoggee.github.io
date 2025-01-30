@@ -85,12 +85,12 @@
       </div>
 
     <section id="songs" class="carousel">
-      <h2 class="section_title">Currently Listening To</h2>
+      <h2 class="section__title">Currently Listening To</h2>
 
       <div class="carousel__track">
-        <img src="images/album1.jpeg" alt="Lord Huron">
-        <img src="images/album2.jpeg" alt="Sleeping at Last">
-        <img src="images/album3.jpeg" alt="Glass Animals">
+        <img src="images/album1.jpg" alt="Lord Huron">
+        <img src="images/album2.jpg" alt="Sleeping at Last">
+        <img src="images/album3.jpg" alt="Glass Animals">
         <img src="images/album4.jpeg" alt="Album 4">
         <img src="images/album5.jpeg" alt="Album 5">
         <!-- Duplicate images for smooth looping -->
@@ -102,27 +102,6 @@
     </div>
     </section>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const track = document.querySelector(".carousel__track");
-          let scrollAmount = 0;
-
-          function scrollAlbums() {
-              scrollAmount += 1;
-              track.style.transform = `translateX(-${scrollAmount}px)`;
-
-              // Reset scroll when reaching half the track width
-              if (scrollAmount >= track.scrollWidth / 2) {
-                  scrollAmount = 0;
-              }
-
-              requestAnimationFrame(scrollAlbums);
-          }
-
-          scrollAlbums();
-      });
-  </script>
-    </section>
 
 
       <!-- Projects -->
