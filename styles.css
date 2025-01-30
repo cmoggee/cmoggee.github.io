@@ -256,16 +256,56 @@
   
   .sun {
     position: absolute;
+    top: 50%;
+    left: 50%;
     width: 100px;
     height: 100px;
     background: var(--clr-sun);
     border-radius: 50%;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%) scale(0);
+    transform-origin: center;
     opacity: 0;
     animation: sunAppear 2s ease-out 1.5s forwards;
   }
+
+  .sun-rays {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sun-rays div {
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background: var(--clr-sun);
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+}
+
+/* Create multiple rays with different rotations */
+.sun-rays div:nth-child(1) { transform: rotate(0deg) translateY(-100px); }
+.sun-rays div:nth-child(2) { transform: rotate(30deg) translateY(-100px); }
+.sun-rays div:nth-child(3) { transform: rotate(60deg) translateY(-100px); }
+.sun-rays div:nth-child(4) { transform: rotate(90deg) translateY(-100px); }
+.sun-rays div:nth-child(5) { transform: rotate(120deg) translateY(-100px); }
+.sun-rays div:nth-child(6) { transform: rotate(150deg) translateY(-100px); }
+.sun-rays div:nth-child(7) { transform: rotate(180deg) translateY(-100px); }
+.sun-rays div:nth-child(8) { transform: rotate(210deg) translateY(-100px); }
+.sun-rays div:nth-child(9) { transform: rotate(240deg) translateY(-100px); }
+.sun-rays div:nth-child(10) { transform: rotate(270deg) translateY(-100px); }
+.sun-rays div:nth-child(11) { transform: rotate(300deg) translateY(-100px); }
+.sun-rays div:nth-child(12) { transform: rotate(330deg) translateY(-100px); }
+
+
+@keyframes sun-rays {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+}
   
   /* Cloud Animations */
   @keyframes cloudLeftMove {
