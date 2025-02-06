@@ -33,6 +33,7 @@
     --clr-fg-alt: #fcfcfc;
     --clr-primary: #0e3376;
     --clr-sun: #FFDB58;
+    --clr-sun-alt: #f0bc00;
     --clr-cloud:#ECEFF1; 
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
@@ -261,48 +262,92 @@
     width: 100px;
     height: 100px;
     background: var(--clr-sun);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50px;
+    transform: translate(-50%, -50%) scale(0); 
+    transform-origin: center center;
+    box-shadow: 0 0 13px var(--clr-sun-alt);
+    opacity: 1;
+    animation: sunAppear 5s ease-out 2s forwards;
+  }
+  .sun .ray{
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 50px;
+    height: 6px;
+    border-radius: 6px;
+    background: var(--clr-sun);
     transform-origin: center;
-    opacity: 0;
-    animation: sunAppear 2s ease-out 1.5s forwards;
+    box-shadow: 0 0 15px var(--clr-sun-alt);
+    transform: translate(-50%, -50%);
   }
 
-  .sun-rays {
+  .sun .sray{
     position: absolute;
-    width: 100px;
-    height: 100px;
+    left: 30%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.sun-rays div {
-    position: absolute;
-    width: 4px;
-    height: 30px;
+    width: 35px;
+    height: 4px;
+    border-radius: 4px;
     background: var(--clr-sun);
-    top: 50%;
-    left: 50%;
-    transform-origin: 50% 100%;
-}
-
-/* Create multiple rays with different rotations */
-.sun-rays div:nth-child(1) { transform: rotate(0deg) translateY(-50px); }
-.sun-rays div:nth-child(2) { transform: rotate(30deg) translateY(-50px); }
-.sun-rays div:nth-child(3) { transform: rotate(60deg) translateY(-50px); }
-.sun-rays div:nth-child(4) { transform: rotate(90deg) translateY(-50px); }
-.sun-rays div:nth-child(5) { transform: rotate(120deg) translateY(-50px); }
-.sun-rays div:nth-child(6) { transform: rotate(150deg) translateY(-50px); }
-.sun-rays div:nth-child(7) { transform: rotate(180deg) translateY(-50px); }
-.sun-rays div:nth-child(8) { transform: rotate(210deg) translateY(-50px); }
-.sun-rays div:nth-child(9) { transform: rotate(240deg) translateY(-50px); }
-.sun-rays div:nth-child(10) { transform: rotate(270deg) translateY(-50px); }
-.sun-rays div:nth-child(11) { transform: rotate(300deg) translateY(-50px); }
-.sun-rays div:nth-child(12) { transform: rotate(330deg) translateY(-50px); }
+    transform-origin: center ;
+    box-shadow: 0 0 15px var(--clr-sun-alt);
+    transform: translate(-50%, -50%);
+  }
 
 
-@keyframes sun-rays {
+  .ray:nth-child(1) {
+    transform: rotate(45deg) translateX(-70px); /* */
+  }
+  .ray:nth-child(2) {
+    transform: rotate(90deg) translateX(-70px);
+  }
+  .ray:nth-child(3) {
+    transform: rotate(135deg) translateX(-70px);
+  }
+  .ray:nth-child(4) {
+    transform: rotate(180deg) translateX(-70px);
+  }
+  .ray:nth-child(5) {
+    transform: rotate(225deg) translateX(-70px);
+  }
+  .ray:nth-child(6) {
+    transform: rotate(270deg) translateX(-70px);
+  }
+  .ray:nth-child(7) {
+    transform: rotate(315deg) translateX(-70px);
+  }
+  .ray:nth-child(8) {
+    transform: rotate(360deg) translateX(-70px);
+  }
+  .sun .sray:nth-of-type(1) {
+    transform: rotate(22.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(2) {
+    transform: rotate(67.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(3) {
+    transform: rotate(112.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(4) {
+    transform: rotate(157.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(5) {
+    transform: rotate(202.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(6) {
+    transform: rotate(247.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(7) {
+    transform: rotate(292.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(8) {
+    transform: rotate(337.5deg) translateX(-55px);
+  } 
+
+
+
+@keyframes ray {
   0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
   100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
 }
@@ -338,10 +383,14 @@
   
   /* Sun Animation */
   @keyframes sunAppear {
+    
     0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 1; transform: translate(-200%, -200%) scale(1); }
+    50% { opacity: 1; transform: translate(-100%, -100%) scale(1); }
+    100% { opacity: 1; transform: translate(-200%, -200%) scale(1); } 
   }
+
+ 
+  
   
   
   /*========
