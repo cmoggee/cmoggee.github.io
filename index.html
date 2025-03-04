@@ -53,6 +53,32 @@
     </header>
 
     <main>
+      <!-- Animation -->
+      <div class="animation">
+        <div class="cloud cloud-left"></div>
+        <div class="cloud cloud-right"></div>
+        <div class="sun">
+          <span class="ray"></span>
+          <span class="ray"></span>
+          <span class="ray"></span>
+          <span class="ray"></span>
+          <span class="ray"></span>
+          <span class="ray"></span>
+          <span class="ray"></span>
+          <span class="ray"></span>
+        </div>
+        <div class="sun">
+          <span class="sray"></span>
+          <span class="sray"></span>
+          <span class="sray"></span>
+          <span class="sray"></span>
+          <span class="sray"></span>
+          <span class="sray"></span>
+          <span class="sray"></span>
+          <span class="sray"></span>
+        </div>  
+      </div>
+
       <!-- About -->
       <div class="about center">
         <h1>Hi, I am <span class="about__name">Charlie Moggee.</span></h1>
@@ -190,13 +216,56 @@
         </ul>
       </section>
 
-      <!-- Contact -->
-      <section class="section contact center" id="contact">
-        <h2 class="section__title">Contact</h2>
-        <a href="mailto:charlie.moggee@gmail.com">
-          <span class="btn btn--outline">Email me</span>
-        </a>
-      </section>
+      <!--Curently Listening To-->
+      <section class="section songs" id="carousel">
+      <h2 class="section__title">Currently Listening To</h2>
+
+      <div class="album-container">
+        <div class="album">
+            <img src="images/album1.jpg" alt="Album 1">
+            <div class="overlay">
+                <p><strong>Song Name</strong></p>
+                <p>Artist Name</p>
+            </div>
+        </div>
+        <div class="album">
+            <img src="images/album2.jpg" alt="Album 2">
+            <div class="overlay">
+                <p><strong>Another Song</strong></p>
+                <p>Another Artist</p>
+            </div>
+        </div>
+        <div class="album">
+            <img src="images/album3.jpg" alt="Album 3">
+            <div class="overlay">
+                <p><strong>Third Song</strong></p>
+                <p>Third Artist</p>
+            </div>
+        </div>
+        <div class="album">
+          <img src="images/album4.jpg" alt="Album 2">
+          <div class="overlay">
+              <p><strong>Another Song</strong></p>
+              <p>Another Artist</p>
+          </div>
+      </div>
+      <div class="album">
+          <img src="images/album5.jpg" alt="Album 3">
+          <div class="overlay">
+              <p><strong>Third Song</strong></p>
+              <p>Third Artist</p>
+          </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact center" id="contact">
+      <h2 class="section__title">Contact</h2>
+      <a href="mailto:charlie.moggee@gmail.com">
+        <span class="btn btn--outline">Email me</span>
+      </a>
+    </section>
     </main>
 
     <footer class="footer">
@@ -204,7 +273,7 @@
         href="https://github.com/rjshkhr/cleanfolio-minimal"
         class="link footer__link"
       >
-        Created By Raj Shekhar
+        Designed with Inspiration from Raj Shekhar
       </a>
     </footer>
 

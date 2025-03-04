@@ -61,3 +61,20 @@ const scrollUp = () => {
 }
 
 document.addEventListener('scroll', scrollUp)
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sun = document.querySelector(".sun");
+    const aboutSection = document.querySelector(".about");
+
+    // Ensure About section starts hidden
+    aboutSection.style.opacity = "0";
+    aboutSection.style.transform = "translateY(20px)";
+
+    // When sun animation finishes, reveal About section
+    sun.addEventListener("animationend", function () {
+        setTimeout(() => {
+            aboutSection.style.opacity = "1";
+            aboutSection.style.transform = "translateY(0)";
+        }, 500); // Short delay after animation
+    });
+});

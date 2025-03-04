@@ -7,7 +7,6 @@
     margin: 0;
     border: 0;
     outline: 0;
-    background-color: inherit;
     color: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -32,6 +31,9 @@
     --clr-fg: #fcfcfc;
     --clr-fg-alt: #fcfcfc;
     --clr-primary: #0e3376;
+    --clr-sun: #FFDB58;
+    --clr-sun-alt: #f0bc00;
+    --clr-cloud:#ECEFF1; 
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   
@@ -201,6 +203,193 @@
   .btn--icon:active {
     transform: translateY(-5px);
   }
+
+  /*===========
+    animation
+  ===========*/
+  .animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;  /* Ensures it stays behind content */
+    overflow: hidden;
+  }
+  
+  .cloud {
+    position: absolute;
+    width:350px;
+    height:120px;
+    background: var(--clr-cloud);
+    border-radius: 100px;
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+  }
+  
+  /* Create a more realistic cloud shape */
+  .cloud::before,
+  .cloud::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background: var(--clr-cloud);
+    border-radius: 100px;
+  }
+  
+  /* Right Fluffy Part */
+  .cloud::before {
+    width:180px;
+    height:180px;
+    top: -70px;
+    left:130px;
+  }
+  
+  /* Left Fluffy Part */
+  .cloud::after {
+    width:100px;
+    height:100px;
+    top:-40px;
+    left:50px;
+  }
+  
+  
+  .sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: var(--clr-sun);
+    border-radius: 50px;
+    transform: translate(-50%, -50%) scale(0); 
+    transform-origin: center center;
+    box-shadow: 0 0 13px var(--clr-sun-alt);
+    opacity: 1;
+    animation: sunAppear 5s ease-out 2s forwards;
+  }
+  .sun .ray{
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 50px;
+    height: 6px;
+    border-radius: 6px;
+    background: var(--clr-sun);
+    transform-origin: center;
+    box-shadow: 0 0 15px var(--clr-sun-alt);
+    transform: translate(-50%, -50%);
+  }
+
+  .sun .sray{
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    width: 35px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--clr-sun);
+    transform-origin: center ;
+    box-shadow: 0 0 15px var(--clr-sun-alt);
+    transform: translate(-50%, -50%);
+  }
+
+
+  .ray:nth-child(1) {
+    transform: rotate(45deg) translateX(-70px); /* */
+  }
+  .ray:nth-child(2) {
+    transform: rotate(90deg) translateX(-70px);
+  }
+  .ray:nth-child(3) {
+    transform: rotate(135deg) translateX(-70px);
+  }
+  .ray:nth-child(4) {
+    transform: rotate(180deg) translateX(-70px);
+  }
+  .ray:nth-child(5) {
+    transform: rotate(225deg) translateX(-70px);
+  }
+  .ray:nth-child(6) {
+    transform: rotate(270deg) translateX(-70px);
+  }
+  .ray:nth-child(7) {
+    transform: rotate(315deg) translateX(-70px);
+  }
+  .ray:nth-child(8) {
+    transform: rotate(360deg) translateX(-70px);
+  }
+  .sun .sray:nth-of-type(1) {
+    transform: rotate(22.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(2) {
+    transform: rotate(67.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(3) {
+    transform: rotate(112.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(4) {
+    transform: rotate(157.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(5) {
+    transform: rotate(202.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(6) {
+    transform: rotate(247.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(7) {
+    transform: rotate(292.5deg) translateX(-55px);
+  }
+  .sun .sray:nth-of-type(8) {
+    transform: rotate(337.5deg) translateX(-55px);
+  } 
+
+
+
+@keyframes ray {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+}
+  
+  /* Cloud Animations */
+  @keyframes cloudLeftMove {
+    0% { left: 50%; opacity: 1; }
+    100% { left: -20%; opacity: 0; }
+  }
+  
+  @keyframes cloudRightMove {
+    0% { left: 50%; opacity: 1; }
+    100% { left: 120%; opacity: 0; }
+  }
+  
+  /* Slower animations (change from 2s to 4s) */
+  .cloud-left {
+    position: absolute;
+    top: 50%;  /* Moves cloud lower on the screen */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: cloudLeftMove 5s ease-out forwards;
+  }
+  
+  .cloud-right {
+    position: absolute;
+    top: 50%;  /* Moves cloud lower on the screen */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: cloudRightMove 5s ease-out forwards;
+  }
+  
+  
+  /* Sun Animation */
+  @keyframes sunAppear {
+    
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    50% { opacity: 1; transform: translate(-100%, -100%) scale(1); }
+    100% { opacity: 1; transform: translate(-200%, -200%) scale(1); } 
+  }
+
+ 
+  
+  
   
   /*========
     layout
@@ -252,6 +441,9 @@
   .about {
     flex-direction: column;
     margin-top: 3em;
+    opacity: 0; /* Hide it initially */
+    transform: translateY(20px); /* Move it slightly down */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
   }
   
   .about__name {
@@ -279,7 +471,60 @@
   .about .btn--outline {
     margin-right: 1em;
   }
-  
+
+  /* Currently Listening to */
+.album-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.album {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.album img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.album:hover img {
+  transform: scale(1.1);
+}
+
+.album .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-primary);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+  text-align: center;
+  padding: 10px;
+}
+
+.album:hover .overlay {
+  opacity: .8;
+}
+
+/* Projects */ 
   .projects__grid {
     max-width: 1100px;
     margin: 0 auto;
@@ -291,6 +536,7 @@
   .project {
     padding: 2em;
     margin: 0 auto;
+    outline: solid #0e3376;
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.2s linear;
